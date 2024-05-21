@@ -1,0 +1,12 @@
+import bpy
+
+# Iterate through all objects in the scene
+for obj in bpy.data.objects:
+    # Check if the object has modifiers
+    if obj.modifiers:
+        # Set the object as the active object
+        bpy.context.view_layer.objects.active = obj
+        # Apply each modifier for the current object
+        for mod in obj.modifiers:
+            bpy.ops.object.modifier_apply(modifier=mod.name)
+
